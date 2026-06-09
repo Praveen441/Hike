@@ -9,7 +9,7 @@ final class CharacterDetailViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockNetworkService = MockNetworkService()
-        let repository = CharacterRepositoryImpl(networkService: mockNetworkService)
+        let repository = CharacterRepositoryImpl(networkService: mockNetworkService ?? MockNetworkService())
         let service = CharacterServiceImpl(repository: repository)
         sut = CharacterDetailViewModel(characterId: 1, characterService: service)
     }
